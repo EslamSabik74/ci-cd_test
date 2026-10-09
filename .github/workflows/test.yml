@@ -1,7 +1,7 @@
 name: my first workflow | shell script
 on: push 
 
-jops:
+jobs:
     first_job:
         runs-on: ubuntu-latest
         steps:
