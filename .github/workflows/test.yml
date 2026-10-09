@@ -3,7 +3,7 @@ on: push
 
 jops:
     first_job:
-        runs-on: ubentu-latest
+        runs-on: ubuntu-latest
         steps:
             - name: checkout repo
               uses: actions/checkout@v4
