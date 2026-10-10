@@ -1,0 +1,45 @@
+name: my second workflow | shell script
+on: push 
+jobs: 
+    build_job1:
+        runs_on: ubuntu latest
+        steps:
+            - name: checkout repo
+              uses: actions/checkout@v4
+
+            - name: instal cowsay program 
+              run: sudo apt-get instal owsay -y  
+
+            - name: Execute cowsay CMD
+              run: cowsay -f dragon "Run for cover , iam a Dragon....RAWR" >> dragon.txt
+
+            - name: Upload a Build Artifact
+              uses: actions/upload-artifact@v7.0.2
+              with:
+                name: dragon-file
+
+                path: dragon.txt
+
+            - name:
+              uses:    
+    test_job1:
+        runs_on: ubuntu latest
+        needs: build_job1
+        steps: 
+           - name: Download a Build Artifact
+             uses: actions/download-artifact@v8.0.2        
+             with:
+               name: dragon-file
+
+           - name: test file Exists
+             run: grep -i "dragon" dragon.txt
+
+    build_job2:
+        runs_on: ununtu latest
+        needs: test_job1
+        steps:
+           - name: Download a Build Artifact
+             uses: actions/download-artifact@v8.0.2    
+
+           - with:
+               name:dragon-file       
