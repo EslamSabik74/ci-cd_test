@@ -1,7 +1,6 @@
 on: push 
 jobs: 
     build_job1:
-        
         runs-on: ubuntu-latest
         steps:
             - name: checkout repo
