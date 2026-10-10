@@ -1,7 +1,8 @@
 on: push 
 jobs: 
     build_job1:
-        runs_on: ubuntu-latest
+        
+        runs-on: ubuntu-latest
         steps:
             - name: checkout repo
               uses: actions/checkout@v4
@@ -22,7 +23,7 @@ jobs:
             - name:
               uses:    
     test_job1:
-        runs_on: ubuntu-latest
+        runs-on: ubuntu-latest
         needs: build_job1
         steps: 
            - name: Download a Build Artifact
@@ -34,7 +35,7 @@ jobs:
              run: grep -i "dragon" dragon.txt
 
     build_job2:
-        runs_on: ununtu-latest
+        runs-on: ubuntu-latest
         needs: test_job1
         steps:
            - name: Download a Build Artifact
