@@ -13,7 +13,7 @@ jobs:
               run: cowsay -f dragon "Run for cover , iam a Dragon....RAWR" >> dragon.txt
 
             - name: Upload a Build Artifact
-              uses: actions/upload-artifact@v7.0.2
+              uses: upload-artifact@v7.0.2
               with:
                 name: dragon-file
 
@@ -23,7 +23,7 @@ jobs:
         needs: build_job1
         steps: 
            - name: Download a Build Artifact
-             uses: actions/download-artifact@v8.0.2        
+             uses: download-artifact@v8.0.2        
              with:
                name: dragon-file
 
@@ -35,6 +35,6 @@ jobs:
         needs: test_job1
         steps:
            - name: Download a Build Artifact
-             uses: actions/download-artifact@v8.0.2    
+             uses: download-artifact@v8.0.2    
              with:
                 name: dragon-file       
