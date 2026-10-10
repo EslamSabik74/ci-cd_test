@@ -1,4 +1,3 @@
-name: my second workflow | shell script
 on: push 
 jobs: 
     build_job1:
